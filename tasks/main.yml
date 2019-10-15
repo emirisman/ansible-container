@@ -1,0 +1,31 @@
+---
+
+- name: Install pip
+  package:
+    name: python3-pip
+    state: latest
+
+- name: Install docker python module
+  pip:
+    name: docker
+    state: latest
+
+- name: Pull {{ container_image }} image
+  docker_image:
+    name: "{{ container_image }}"
+    pull: True
+
+- name: Start {{ container_name }} container
+  docker_container:
+    name: "{{ container_name }}"
+    image: "{{ container_image }}"
+    restart_policy: "{{ container_restart_policy }}"
+    state: "{{ container_state }}"
+    volumes: "{{ container_volumes }}"
+    env: "{{ container_env }}"
+    capabilities: "{{ container_capabilities }}"
+    security_opts: "{{ container_security_opts }}"
+    ports: "{{ container_ports }}"
+    user: "{{ container_user }}"
+    hostname: "{{ container_hostname }}"
+    network_mode: "{{ container_network_mode }}"

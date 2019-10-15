@@ -1,0 +1,15 @@
+---
+
+container_name: ""
+container_image: ""
+container_restart_policy: unless-stopped
+container_state: started
+
+container_volumes: []
+container_env: {}
+container_capabilities: []
+container_security_opts: []
+container_ports: []
+container_user: ""
+container_hostname: ""
+container_network_mode: ""
